@@ -5,16 +5,12 @@ function binarySearch(list, item) {
   let high = list.length - 1;
 
   while (low <= high) {
-    let mid = Math.ceil((high + low) / 2);
+    let mid = (high + low) >>> 1;
     let guess = list[mid];
 
     if (guess === item) return guess;
 
-    if (guess > item) {
-      high = mid - 1;
-    } else {
-      low = mid + 1;
-    }
+    guess > item ? (high = mid - 1) : (low = mid + 1);
   }
 
   return null;
