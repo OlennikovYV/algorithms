@@ -1,13 +1,28 @@
 // (O) = n * n
 
-function selectionSort(array) {
+function findSmallest(array) {
+  let indexMin = 0;
+
+  for (let i = 0; i < array.length; i += 1)
+    if (array[i] < array[indexMin]) indexMin = i;
+
+  return indexMin;
+}
+
+function findGreatest(array) {
+  let indexMin = 0;
+
+  for (let i = 0; i < array.length; i += 1)
+    if (array[i] > array[indexMin]) indexMin = i;
+
+  return indexMin;
+}
+
+function selectionSort(array, sortingFunction) {
   const sortedArray = [...array];
 
   for (let i = 0; i < sortedArray.length; i += 1) {
-    let indexMin = i;
-
-    for (let j = i; j < sortedArray.length; j += 1)
-      if (sortedArray[indexMin] > sortedArray[j]) indexMin = j;
+    let indexMin = sortingFunction(sortedArray.slice(i)) + i;
 
     if (indexMin !== i)
       [sortedArray[i], sortedArray[indexMin]] = [
@@ -21,4 +36,5 @@ function selectionSort(array) {
 
 const unsortedArray = [63, 38, 99, 42, 80, 51, 76, 24, 76, 15];
 
-console.log(selectionSort(unsortedArray));
+console.log(selectionSort(unsortedArray, findSmallest));
+console.log(selectionSort(unsortedArray, findGreatest));
