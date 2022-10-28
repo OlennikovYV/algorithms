@@ -10,12 +10,12 @@ function findSmallest(array) {
 }
 
 function findGreatest(array) {
-  let indexMin = 0;
+  let indexMan = 0;
 
   for (let i = 0; i < array.length; i += 1)
-    if (array[i] > array[indexMin]) indexMin = i;
+    if (array[i] > array[indexMan]) indexMan = i;
 
-  return indexMin;
+  return indexMan;
 }
 
 function selectionSort(array, sortingFunction) {
