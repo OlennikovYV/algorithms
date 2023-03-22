@@ -1,7 +1,7 @@
 // В среднем (O) = n * log * n, в худшем // (O) = n * n
 
 function quickSort(array) {
-  let pivot = array[0];
+  let pivot = array[Math.floor(Math.random() * array.length)];
   const left = [];
   const right = [];
   const equal = [];
